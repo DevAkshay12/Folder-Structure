@@ -1,0 +1,43 @@
+/* Enter your custom styles here */
+
+
+.child {
+    width: 400px;
+    padding-left: 10px;
+}
+.child1 {
+    width: 400px;
+    padding-left: 10px;
+}
+
+.ven1
+{
+    padding-top: 7px;
+}
+
+.save{
+    justify-content: end !important;
+    /* background: red !important; */
+}
+
+.box {
+    padding-left: 100px;
+}
+.box1 {
+    padding-left: 93px;
+    padding-right: 8px;
+}
+
+.folder{
+    padding-left: 32px;
+    padding-bottom: 10px;
+}
+
+.title{
+    padding-left: 470px;
+    padding-bottom: 10px;
+}
+
+/* .head{
+ padding-right: 1300px;   
+} */

@@ -1,0 +1,42 @@
+<mvc:View xmlns:form="sap.ui.layout.form" xmlns:uxap="sap.uxap" xmlns:table="sap.ui.mdc.table" xmlns:tnt="sap.tnt" xmlns:core="sap.ui.core" controllerName="folderstructure.controller.Folder_View"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:webc ="sap.ui.webc.main"
+    xmlns="sap.m">
+<Page id="page" class="sapUiContentPadding" >
+<headerContent>
+<Button id="b11" text="Edit" type="Emphasized" press="edit" iconFirst="true" icon="sap-icon://edit"></Button>
+</headerContent> 
+<HBox id="hbox">
+
+<!-- <Title id="1" text="Folders"></Title>
+<Title id="2" text="Assign"></Title> -->
+
+
+
+
+</HBox>
+<VBox id="main" height="90vh" backgroundDesign="Transparent">
+  <!-- <webc:Tree id="maintree"></webc:Tree> -->
+    </VBox>
+    <footer>
+    <OverflowToolbar class="save" id="t1" style="Standard">
+    <Button id="b1" text="save" type="Emphasized" press="button" iconFirst="true" icon="sap-icon://save">
+    </Button>
+    </OverflowToolbar>
+    </footer>
+</Page>
+    
+    <!-- <VBox id="v1" width="150%" height="150%" class = "vboxclass">
+      <webc:Tree id="treee" footerText="Click on the folder to select path" headerText="Folders">
+      <webc:items>
+       <webc:TreeItem id="folder_1" icon="sap-icon://folder-full" text="Part No" metadataContexts="">
+        <webc:items>
+
+        <webc:TreeItem id="subfolder_1" icon="sap-icon://folder-full" text="Sub Folder 1"/>
+        </webc:items>
+        </webc:TreeItem>
+      </webc:items>
+      </webc:Tree>
+    </VBox> -->
+
+</mvc:View>
