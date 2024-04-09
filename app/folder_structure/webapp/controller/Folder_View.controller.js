@@ -171,9 +171,44 @@ sap.ui.define([
                                                     });
                                                 }),
                                                 selectedKeys: defaultValues,
+                                                showSelectAll:true,
+                                                selectionFinish:async function (params) {
+                                                    debugger
+                                                    let data_array = []
+                                                    let data = params.mParameters.selectedItems
+                                                    let folder_name = params.mParameters.selectedItems[0].oParent.oParent.mAggregations.items[0].getText();
+                                                    for(var a=0;a<data.length;a++)
+                                                    {
+                                                        console.log();
+                                                        data_array.push(data[a].getText());
+                                                    }
+                                                    console.log()
+                                                    let funcname = 'check';
+                                                    var getdata_val = "1"
+                                                    let ofunc = oEvent.oSource.getModel().bindContext(`/${funcname}(...)`);
+                                                    ofunc.setParameter('id', data_array);
+                                                    ofunc.setParameter('fold', folder_name);
+                                                    await ofunc.execute();
+                                                    const oContext = ofunc.getBoundContext();
+                                                    var result = oContext.getValue();
+                                                    console.log("unselected value has been removed")
+                                                },
                                                 change: async function (oEvent) {
-                                                   
-                                                      
+                                                // if(oEvent.mParameters.value.length > 0)
+                                                // {
+                                                    // debugger;
+                                                //     let unselected_data = oEvent.mParameters.value
+                                                //     let unselected_fold = oEvent.oSource.oParent.mAggregations.items[0].getText();
+                                                //     let funcname = 'remove';
+                                                //     let ofunc = oEvent.oSource.getModel().bindContext(`/${funcname}(...)`);
+                                                //     ofunc.setParameter('id', unselected_data);
+                                                //     ofunc.setParameter('fold', unselected_fold);
+                                                //     await ofunc.execute();
+                                                //     const oContext = ofunc.getBoundContext();
+                                                //     var result = oContext.getValue();
+                                                //     console.log("unselected");
+                                                // }
+                                                    debugger  
                                                     if (tflag) {
                                                        
                                                         token1 = oEvent.oSource.mAggregations.tokenizer.mAggregations.tokens;
@@ -203,7 +238,7 @@ sap.ui.define([
                                                     tflag = false;
                                                 },
                                                 selectionChange: async function (oEvent) {
-                                                    
+                                                    debugger
                                                     tflag = true;
                                                     token = oEvent.oSource.mAggregations.tokenizer.mAggregations.tokens;
                                                     for(let i=0;i<token.length;i++)
@@ -211,6 +246,10 @@ sap.ui.define([
                                                         token_data.push(token[i].getText());
                                                     }
                                                     token = Array.from(new Set(token_data));
+                                                    if(token == "Select All")
+                                                    {
+
+                                                    }
                                                     console.log();
                                                 }
                                             }).addStyleClass("box")

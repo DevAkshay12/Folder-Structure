@@ -52,7 +52,42 @@ module.exports = async function () {
         } 
           
         return "deleted"
+    })
+    this.on("check", async (req) => {
+        console.log();
+        const values = req.data.id;
+        const array_values = values.split(',');
+        const missingValues = [];
+        let check = await SELECT`id,Data`.from(Data);
+        for (let i = 0; i < check.length; i++) {
+            const dataValue = check[i].Data;
+            if (!array_values.includes(dataValue)) {
+                missingValues.push(dataValue);
+            }
+        }
+        console.log();
+        if(missingValues.length != 0)
+        {
+            for(let j = 0;j<missingValues.length;j++)
+            {
+               let deleted =  await DELETE.from(Data).where`id=${req.data.fold} AND Data=${missingValues[j]}`; 
+            }
+        }
 
+        return "removed unselected value"
+
+        // for(let a = 0;a<array_values.length;a++)
+        // {
+        //     console.log();
+        //     let check = await SELECT`id,Data`.from(Data);
+        //     if(check.length > 0)
+        //     {
+                
+        //     }
+        //     else {
+        //         break;
+        //     }
+        // }
     })
     
 
