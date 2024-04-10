@@ -75,21 +75,15 @@ module.exports = async function () {
         }
 
         return "removed unselected value"
-
-        // for(let a = 0;a<array_values.length;a++)
-        // {
-        //     console.log();
-        //     let check = await SELECT`id,Data`.from(Data);
-        //     if(check.length > 0)
-        //     {
-                
-        //     }
-        //     else {
-        //         break;
-        //     }
-        // }
     })
     
+
+    this.on("delete1", async (req) => {
+       console.log();
+       let deleted =  await DELETE.from(Data).where`id=${req.data.id}`;
+       console.log(deleted);
+       return "executed delete function"
+    })
 
 
 }

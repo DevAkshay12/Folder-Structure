@@ -7,4 +7,5 @@ service MyService {
     function getdata(id:String) returns String;
     function remove(id:String,fold:String) returns String;
     function check(id: String, fold: String) returns String;
+    function delete1(id: String) returns String;
 }

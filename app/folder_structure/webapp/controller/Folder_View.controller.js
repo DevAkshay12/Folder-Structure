@@ -175,7 +175,20 @@ sap.ui.define([
                                                 selectionFinish:async function (params) {
                                                     debugger
                                                     let data_array = []
-                                                    let data = params.mParameters.selectedItems
+                                                    let data = params.mParameters.selectedItems;
+                                                    if(data.length == 0)
+                                                    {
+                                                        let id = params.oSource.oParent.mAggregations.items[0].mProperties.text
+                                                        let funcname = 'delete1';
+                                                        let ofunc = oEvent.oSource.getModel().bindContext(`/${funcname}(...)`);
+                                                        ofunc.setParameter('id', id);
+                                                        await ofunc.execute();
+                                                        const oContext = ofunc.getBoundContext();
+                                                        var result = oContext.getValue();
+                                                        // result = JSON.parse(result.value);
+                                                        console.log(result);
+                                                        return;
+                                                    }
                                                     let folder_name = params.mParameters.selectedItems[0].oParent.oParent.mAggregations.items[0].getText();
                                                     for(var a=0;a<data.length;a++)
                                                     {
@@ -194,20 +207,6 @@ sap.ui.define([
                                                     console.log("unselected value has been removed");
                                                 },
                                                 change: async function (oEvent) {
-                                                // if(oEvent.mParameters.value.length > 0)
-                                                // {
-                                                    // debugger;
-                                                //     let unselected_data = oEvent.mParameters.value
-                                                //     let unselected_fold = oEvent.oSource.oParent.mAggregations.items[0].getText();
-                                                //     let funcname = 'remove';
-                                                //     let ofunc = oEvent.oSource.getModel().bindContext(`/${funcname}(...)`);
-                                                //     ofunc.setParameter('id', unselected_data);
-                                                //     ofunc.setParameter('fold', unselected_fold);
-                                                //     await ofunc.execute();
-                                                //     const oContext = ofunc.getBoundContext();
-                                                //     var result = oContext.getValue();
-                                                //     console.log("unselected");
-                                                // }
                                                     debugger  
                                                     if (tflag) {
                                                        
