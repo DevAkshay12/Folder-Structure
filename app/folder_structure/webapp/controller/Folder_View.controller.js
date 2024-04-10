@@ -191,7 +191,7 @@ sap.ui.define([
                                                     await ofunc.execute();
                                                     const oContext = ofunc.getBoundContext();
                                                     var result = oContext.getValue();
-                                                    console.log("unselected value has been removed")
+                                                    console.log("unselected value has been removed");
                                                 },
                                                 change: async function (oEvent) {
                                                 // if(oEvent.mParameters.value.length > 0)
